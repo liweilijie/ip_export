@@ -1,0 +1,10 @@
+[Unit]
+Description=ip export to email
+After=network.target auditd.service
+
+[Service]
+ExecStart=/usr/local/ip_export/ip_export -r /usr/local/ip_export/record -t 3600
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
